@@ -1,6 +1,6 @@
 # Python BOT WHATSAPP ( Projeto em aberto )
 
-> Esse projeto em python é apenas para estudo. Meu objetivo era fazer uma api para whatsapp como estudo,mas dá muito trabalho e estou sozinho então o andamento é lento.
+> Esse projeto em python é apenas para estudo. Meu objetivo era fazer uma api para whatsapp completamente em python,me desafiando.Mas dá muito trabalho e estou sozinho então o andamento é lento.
 
 <li><a href="#oque-pode-fazer-">Funcionalidades</a></li>
 <li><a href="#requisitos">Instalação</a></li>
