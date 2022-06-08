@@ -12,15 +12,13 @@ def conectar_cel():
     global total_de_conversas
     global ativacao
     
-    
-    
     try:
         total_de_conversas=navegador.find_elements(By.CLASS_NAME,'_3OvU8')
     except:
         print('...')    
     
     if total_de_conversas== []:
-        print('Erro: Conclua a autenticação QRCODE e espera uns instantes.')
+        print('Erro: Conclua a autenticação QRCODE e espera whatssapp carregar.')
         sleep(1)
         print('Tente novamente.')
         inicio()
@@ -32,6 +30,7 @@ def conectar_cel():
 
 
 def achar_numero(aux_total,conversas_do_zap):
+    # Há um certo bug nessa função, pas vezes funciona e ou as vezes, ainda não entendi =/ ... 
     global local_conversa
     #--- Esse variavel vai recebe por cada vez um numero que o selenium conseguiu lê
     numero_do_pv=[]
@@ -41,10 +40,8 @@ def achar_numero(aux_total,conversas_do_zap):
             local_conversa.append(conversas_do_zap[x].find_element(By.CLASS_NAME,'zoWT4'))
             numero_do_pv.append(local_conversa[x].find_element(By.TAG_NAME,'span').text)
             
-
             print(f'Conversas n° {x}-> {numero_do_pv[x]}')
                 
-
         except:
             print('Erro na leitura dan conversa recente...')
             n_teste=0
@@ -66,6 +63,7 @@ def mandar_mensagem(mensagem,localizar):
             # apenas escrever.
             
             teste_3.send_keys(f"{mensagem}")
+            #Apenas escreva na caixa de mensagem.
             print('Mensagem enviada ;)')
             break 
 
@@ -82,10 +80,9 @@ def segunda_conf():
 
 def ler_mensagens(localizar):
     global conversas_lidas
+    localizar.click()
     
     #--- Essas variaveis vão auxiliar na navegação do selenium entre as classes.
-    localizar.click()
-    #--- Variaveis de navegação
     h=navegador.find_element(By.CLASS_NAME,'_3K4-L')
     h_2 = h.find_elements(By.CLASS_NAME,'_22Msk')  
     #---
@@ -190,19 +187,11 @@ def inicio():
 
         else:
             inicio()
-    
-
-
-
 
 # --- Variaveis inicias:
 url='https://web.whatsapp.com/'
 ativacao=False
 local_conversa=[]
-
-
-
-
 
 ## INICIO DO PROGRAMA
 primeiro=input('------INICIO------\nAperta o ENTER para iniciar o navegador.')
